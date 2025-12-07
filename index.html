@@ -187,6 +187,7 @@
       flex-wrap: wrap;
       gap: 0.7rem;
       align-items: center;
+      margin-top: 1rem;
     }
 
     .btn {
@@ -312,6 +313,73 @@
       padding: 0.5rem;
     }
 
+    /* 🔴 ANIMACJA LASERA – Atomstack styl 😉 */
+    .laser-demo {
+      position: relative;
+      margin-top: 0.5rem;
+      height: 40px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .laser-head {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9ca3af, #e5e7eb);
+      box-shadow: 0 0 14px rgba(148, 163, 184, 0.9);
+      position: relative;
+    }
+
+    .laser-head::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 10px;
+      border-radius: 999px;
+      background: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+    }
+
+    .laser-beam {
+      flex: 1;
+      height: 8px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 0, rgba(56, 189, 248, 0.9), transparent 55%),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(37, 99, 235, 0.9), rgba(56, 189, 248, 0.1));
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+    }
+
+    .laser-beam::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, #e0f2fe, transparent);
+      opacity: 0.7;
+      transform: translateX(-100%);
+      animation: laser-sweep 1.4s linear infinite;
+    }
+
+    @keyframes laser-sweep {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
     /* Section headings */
     .section-header {
       margin-bottom: 1.8rem;
@@ -361,6 +429,13 @@
       grid-template-columns: auto 1fr;
       gap: 0.75rem;
       align-items: flex-start;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.25);
+      border-color: rgba(37, 99, 235, 0.7);
     }
 
     .service-icon {
@@ -757,6 +832,13 @@
           <span><span class="hero-bullet"></span>Serwis elektronarzędzi – naprawa, wymiana części, przeglądy.</span>
           <span><span class="hero-bullet"></span>Usługi elektryczne – instalacje, drobne naprawy.</span>
         </div>
+
+        <!-- 🔴 ANIMACJA WIĄZKI LASERA -->
+        <div class="laser-demo">
+          <div class="laser-head"></div>
+          <div class="laser-beam"></div>
+        </div>
+
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-primary">Umów wycenę</a>
           <a href="tel:+48883699111" class="btn btn-ghost">Zadzwoń: 883&nbsp;699&nbsp;111</a>
