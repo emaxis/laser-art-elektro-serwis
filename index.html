@@ -1,65 +1,1102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Laser Art. Elektro Serwis</title>
+  <meta charset="UTF-8" />
+  <title>Laser Art. Elektro Serwis – Grawer, cięcie, reklama, serwis elektronarzędzi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Laser Art. Elektro Serwis – znakowanie laserem, cięcie, reklama, serwis elektronarzędzi, usługi elektryczne. Krzyżowice, gmina Olszanka." />
   <style>
-    body {font-family: Arial, sans-serif; margin:0; background:#f8fafc; color:#111;}
-    header {background:#111; color:#fff; text-align:center; padding:20px;}
-    header h1 {margin:0;}
-    header p {margin:5px 0 0;}
-    .heroimg {max-width:100%; border-radius:12px; margin-top:12px;}
-    main {max-width:1100px; margin:auto; padding:20px;}
-    section {background:#fff; border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,.1);}
-    h2 {color:#2b6cb0;}
-    .grid {display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:16px;}
-    .grid img {width:100%; border-radius:12px;}
-    footer {text-align:center; padding:20px; color:#555;}
+    :root {
+      --primary: #0074d9;
+      --primary-dark: #00509b;
+      --accent: #ff851b;
+      --bg: #f5f7fb;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 247, 251, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.2rem 0.4rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary);
+      color: #f9fafb;
+    }
+
+    .nav-contact {
+      display: none;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(37, 99, 235, 0.08);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+      font-weight: 800;
+    }
+
+    .hero-highlight {
+      color: var(--primary-dark);
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.92rem;
+    }
+
+    .hero-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #f9fafb;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-ghost {
+      background: white;
+      color: var(--text);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: #e5edff;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-media {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #dbeafe, #f9fafb);
+      padding: 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-media-inner {
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      background: white;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-media-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-media-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .hero-media-tags {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-media-tag {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      font-size: 0.72rem;
+      color: #1d4ed8;
+    }
+
+    .hero-media-photo {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #e5e7eb;
+      padding: 1rem;
+      font-size: 0.82rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1rem;
+    }
+
+    .hero-media-photo-list {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .hero-media-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.08);
+      font-size: 0.75rem;
+    }
+
+    .hero-media-map {
+      border-radius: 16px;
+      background: radial-gradient(circle at top, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    /* Section headings */
+    .section-header {
+      margin-bottom: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    /* Services */
+    #uslugi .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .services-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .service-card {
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.9rem 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .service-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .service-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      font-size: 0.98rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .service-tags {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .service-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .services-side {
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      background: #0f172a;
+      color: #e5e7eb;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.6);
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .services-side h3 {
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .services-side-highlight {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .services-side-list {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: 0.2rem;
+    }
+
+    .services-side-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .services-side-badge {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    /* Realizacje */
+    #realizacje .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #0f172a;
+      min-height: 150px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
+      opacity: 0.95;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .gallery-label {
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    .gallery-tag {
+      margin-top: 0.15rem;
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+
+    /* Dlaczego my */
+    #dlaczego .reasons {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .reasons-list {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .reason-line {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .reason-dot {
+      margin-top: 0.35rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary-dark);
+    }
+
+    .reasons-card {
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .reasons-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .reasons-pill {
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.78rem;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    /* Kontakt */
+    #kontakt .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 1rem 1.1rem;
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-row {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-value a {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .contact-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .contact-social-pill {
+      font-size: 0.82rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e5edff;
+      color: #1d4ed8;
+    }
+
+    .contact-form {
+      border-radius: 18px;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      font-size: 0.88rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .contact-form label {
+      font-size: 0.8rem;
+      margin-bottom: 0.15rem;
+      display: inline-block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.4rem 0.55rem;
+      background: rgba(15, 23, 42, 0.6);
+      color: #e5e7eb;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 1px #60a5fa;
+    }
+
+    .contact-form small {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .contact-form button {
+      margin-top: 0.35rem;
+      background: #22c55e;
+      border-radius: 999px;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #022c22;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 10px 30px rgba(22, 163, 74, 0.5);
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-1px);
+      background: #16a34a;
+    }
+
+    .contact-map {
+      border-radius: 16px;
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      padding: 0.6rem 0.7rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+
+      .nav-contact {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 767px) {
+      header {
+        position: static;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links {
+        order: 3;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      #uslugi .grid,
+      #dlaczego .reasons,
+      #kontakt .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
+<div class="page">
   <header>
-    <h1>Laser Art. Elektro Serwis</h1>
-    <p>Znakowanie laserem • Usługi cięcia • Reklama • Serwis elektronarzędzi • Usługi elektryczne</p>
-    <img class="heroimg" src="images/hero.jpg" alt="Zdjęcie główne">
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-title">Laser Art. Elektro Serwis</div>
+        <div class="brand-subtitle">Grawer laserowy • Cięcie • Reklama • Serwis • Elektryka</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#uslugi">Usługi</a>
+        <a href="#realizacje">Realizacje</a>
+        <a href="#dlaczego">Dlaczego my</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a href="tel:+48883699111" class="btn btn-primary nav-contact">883&nbsp;699&nbsp;111</a>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Usługi</h2>
-      <ul>
-        <li>Znakowanie laserem — precyzyjne i trwałe grawerowanie.</li>
-        <li>Usługi cięcia — metale, tworzywa, inne materiały.</li>
-        <li>Reklama — tabliczki, szyldy, elementy identyfikacji.</li>
-        <li>Serwis elektronarzędzi — naprawa i konserwacja.</li>
-        <li>Usługi elektryczne — instalacje i serwis.</li>
-      </ul>
-    </section>
+    <!-- HERO -->
+    <section class="section hero" id="start">
+      <div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Szybkie realizacje w Krzyżowicach i okolicy
+        </div>
+        <h1 class="hero-title">
+          Znakowanie <span class="hero-highlight">laserem</span>, reklama i serwis
+          elektronarzędzi – wszystko w jednym miejscu.
+        </h1>
+        <p class="hero-text">
+          Precyzyjne grawerowanie, cięcie materiałów, tabliczki i szyldy reklamowe,
+          naprawa elektronarzędzi oraz usługi elektryczne – dla firm i klientów indywidualnych.
+        </p>
+        <div class="hero-list">
+          <span><span class="hero-bullet"></span>Znakowanie laserem – stal, aluminium, tworzywa, drewno.</span>
+          <span><span class="hero-bullet"></span>Cięcie materiałów pod wymiar i projekt.</span>
+          <span><span class="hero-bullet"></span>Serwis elektronarzędzi – naprawa, wymiana części, przeglądy.</span>
+          <span><span class="hero-bullet"></span>Usługi elektryczne – instalacje, drobne naprawy.</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Umów wycenę</a>
+          <a href="tel:+48883699111" class="btn btn-ghost">Zadzwoń: 883&nbsp;699&nbsp;111</a>
+          <div class="hero-note">Krzyżowice 12, 49-332 Olszanka</div>
+        </div>
+      </div>
 
-    <section>
-      <h2>Nasze realizacje</h2>
-      <div class="grid">
-        <img src="images/praca1.jpg" alt="Realizacja 1">
-        <img src="images/praca2.jpg" alt="Realizacja 2">
-        <img src="images/praca3.jpg" alt="Realizacja 3">
-        <img src="images/praca4.jpg" alt="Realizacja 4">
-        <img src="images/praca5.jpg" alt="Realizacja 5">
+      <div class="hero-media">
+        <div class="hero-media-inner">
+          <div class="hero-media-header">
+            <div>
+              <div class="hero-media-title">Przykładowe realizacje</div>
+              <div>Tabliczki, grawer na metalach, obudowy urządzeń</div>
+            </div>
+            <div class="hero-media-tags">
+              <span class="hero-media-tag">Laser fiber</span>
+              <span class="hero-media-tag">Reklama</span>
+              <span class="hero-media-tag">Serwis</span>
+            </div>
+          </div>
+          <div class="hero-media-photo">
+            <div class="hero-media-photo-list">
+              <div class="hero-media-pill">✓ Tabliczki znamionowe</div>
+              <div class="hero-media-pill">✓ Grawer logo firmy</div>
+              <div class="hero-media-pill">✓ Oznaczanie elementów maszyn</div>
+              <div style="font-size:0.8rem;opacity:0.9;margin-top:0.4rem;">
+                Dodaj tu własne zdjęcie w pliku:
+                <code>img/hero.jpg</code>
+              </div>
+            </div>
+            <div class="hero-media-map">
+              Krzyżowice 12<br />
+              49-332 Olszanka<br />
+              <span style="opacity:0.85;">Realizacje dla całej okolicy i wysyłkowo</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Kontakt</h2>
-      <p><strong>Telefon:</strong> <a href="tel:+48883699111">883 699 111</a></p>
-      <p><strong>E-mail:</strong> <a href="mailto:emaxis@poczta.fm">emaxis@poczta.fm</a></p>
-      <p><strong>Adres:</strong> Krzyżowice 12, 49-332 Olszanka</p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61568312644020" target="_blank">facebook.com</a></p>
-      <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@ema.serwis" target="_blank">@ema.serwis</a></p>
+    <!-- USŁUGI -->
+    <section class="section" id="uslugi">
+      <div class="section-header">
+        <div class="section-kicker">Zakres usług</div>
+        <h2 class="section-title">W czym możemy Ci pomóc?</h2>
+        <p class="section-text">
+          Od pojedynczej tabliczki znamionowej, przez elementy reklamy,
+          aż po serwis elektronarzędzi i drobne instalacje – działamy elastycznie,
+          dopasowując się do potrzeb klienta.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="services-list">
+          <article class="service-card">
+            <div class="service-icon">✒️</div>
+            <div>
+              <h3 class="service-title">Znakowanie laserem</h3>
+              <p class="service-desc">
+                Trwałe i precyzyjne grawerowanie na metalach, aluminium,
+                tworzywach sztucznych, laminatach i drewnie.
+              </p>
+              <div class="service-tags">
+                <span class="service-tag">Tabliczki znamionowe</span>
+                <span class="service-tag">Logotypy</span>
+                <span class="service-tag">Skale i oznaczenia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🪚</div>
+            <div>
+              <h3 class="service-title">Usługi cięcia</h3>
+              <p class="service-desc">
+                Docinanie elementów pod wymiar – metale, tworzywa, płyty
+                kompozytowe i inne materiały, według rysunku lub wzoru.
+              </p>
+              <div class="service-tags">
+                <span class="service-tag">Małe serie</span>
+                <span class="service-tag">Prototypy</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">📢</div>
+            <div>
+              <h3 class="service-title">Reklama i oznakowanie</h3>
+              <p class="service-desc">
+                Tabliczki informacyjne, szyldy, numery domów, oznakowanie maszyn
+                i pomieszczeń, elementy identyfikacji wizualnej.
+              </p>
+              <div class="service-tags">
+                <span class="service-tag">Szyldy</span>
+                <span class="service-tag">Numery domów</span>
+                <span class="service-tag">Oznakowanie BHP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔧</div>
+            <div>
+              <h3 class="service-title">Serwis elektronarzędzi</h3>
+              <p class="service-desc">
+                Naprawa, przegląd i konserwacja elektronarzędzi.
+                Wymiana zużytych części, diagnostyka usterek.
+              </p>
+              <div class="service-tags">
+                <span class="service-tag">Diagnostyka</span>
+                <span class="service-tag">Części zamienne</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">⚡</div>
+            <div>
+              <h3 class="service-title">Usługi elektryczne</h3>
+              <p class="service-desc">
+                Drobne instalacje, podłączenia, naprawy oraz serwis
+                podstawowych instalacji elektrycznych.
+              </p>
+              <div class="service-tags">
+                <span class="service-tag">Naprawy</span>
+                <span class="service-tag">Przeglądy</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="services-side">
+          <div class="services-side-highlight">Dla firm i osób prywatnych</div>
+          <h3>Małe serie, prototypy, pojedyncze sztuki</h3>
+          <p>
+            Nie wymagamy dużych nakładów. Możesz zlecić pojedynczą tabliczkę
+            lub małą serię elementów. Doradzimy dobór materiału i technologii.
+          </p>
+          <div class="services-side-list">
+            <div>• Krótkie terminy realizacji</div>
+            <div>• Możliwość wysyłki gotowych elementów</div>
+            <div>• Indywidualna wycena na podstawie projektu</div>
+          </div>
+          <div class="services-side-badge-row">
+            <div class="services-side-badge">Krzyżowice • Olszanka</div>
+            <div class="services-side-badge">Okoliczne miejscowości</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- REALIZACJE -->
+    <section class="section" id="realizacje">
+      <div class="section-header">
+        <div class="section-kicker">Realizacje</div>
+        <h2 class="section-title">Wybrane przykłady prac</h2>
+        <p class="section-text">
+          Tu możesz podstawić własne zdjęcia wykonanych zleceń. Wystarczy dodać
+          pliki do katalogu <code>img/</code> i podmienić nazwy w kodzie.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gallery-item">
+          <!-- Podmień src na własny plik, np. img/praca1.jpg -->
+          <!-- <img src="img/praca1.jpg" alt="Grawer na metalowej tabliczce" /> -->
+          <div class="gallery-overlay">
+            <div>
+              <div class="gallery-label">Tabliczki znamionowe</div>
+              <div class="gallery-tag">Grawer laserowy na aluminiowych płytkach</div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="gallery-item">
+          <!-- <img src="img/praca2.jpg" alt="Szyld reklamowy" /> -->
+          <div class="gallery-overlay">
+            <div>
+              <div class="gallery-label">Szyldy i oznakowanie</div>
+              <div class="gallery-tag">Numery domów, tabliczki informacyjne</div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="gallery-item">
+          <!-- <img src="img/praca3.jpg" alt="Grawer logo na obudowie" /> -->
+          <div class="gallery-overlay">
+            <div>
+              <div class="gallery-label">Logo i elementy maszyn</div>
+              <div class="gallery-tag">Oznaczenia przycisków, paneli, obudów</div>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="gallery-item">
+          <!-- <img src="img/praca4.jpg" alt="Naprawa elektronarzędzia" /> -->
+          <div class="gallery-overlay">
+            <div>
+              <div class="gallery-label">Serwis elektronarzędzi</div>
+              <div class="gallery-tag">Naprawa, czyszczenie, wymiana części</div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DLACZEGO MY -->
+    <section class="section" id="dlaczego">
+      <div class="section-header">
+        <div class="section-kicker">Dlaczego warto</div>
+        <h2 class="section-title">Mała firma, bezpośredni kontakt</h2>
+        <p class="section-text">
+          Zamiast anonimowej dużej produkcji – kontakt z osobą, która faktycznie
+          wykona Twoje zlecenie. Możesz dopytać, pokazać przykład, skonsultować szczegóły.
+        </p>
+      </div>
+
+      <div class="reasons">
+        <div class="reasons-list">
+          <div class="reason-line">
+            <span class="reason-dot"></span>
+            <span>Krótkie terminy i możliwość wykonania pojedynczych sztuk – idealnie na
+            prototypy, testy lub małe serie.</span>
+          </div>
+          <div class="reason-line">
+            <span class="reason-dot"></span>
+            <span>Możliwość ustaleń telefonicznie, mailowo lub przez media społecznościowe –
+            jak Ci wygodniej.</span>
+          </div>
+          <div class="reason-line">
+            <span class="reason-dot"></span>
+            <span>Wsparcie techniczne – doradzimy, jaki materiał i technologia będą
+            najlepsze dla Twojego zastosowania.</span>
+          </div>
+        </div>
+
+        <aside class="reasons-card">
+          <div class="reasons-row">
+            <div>
+              <div class="contact-label">Godziny kontaktu</div>
+              <div>Najczęściej odbieramy w godzinach popołudniowych i wieczornych.</div>
+            </div>
+          </div>
+          <div class="reasons-row">
+            <div class="reasons-pill">Indywidualna wycena</div>
+            <div class="reasons-pill">Możliwość wysyłki</div>
+          </div>
+          <div style="font-size:0.8rem;color:var(--muted);">
+            Jeśli wysyłasz projekt, wyślij pliki (np. PDF, DXF, PNG) na e-mail wraz z krótkim
+            opisem – odezwiemy się z propozycją rozwiązania.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="section" id="kontakt">
+      <div class="section-header">
+        <div class="section-kicker">Kontakt</div>
+        <h2 class="section-title">Zadzwoń, napisz, podejdź</h2>
+        <p class="section-text">
+          Najszybszy kontakt to telefon. Możesz też wysłać wiadomość e-mail z
+          załączonym projektem – odpowiemy z wyceną i terminem realizacji.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-row">
+            <div class="contact-label">Telefon</div>
+            <div class="contact-value">
+              <a href="tel:+48883699111">883&nbsp;699&nbsp;111</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">E-mail</div>
+            <div class="contact-value">
+              <a href="mailto:emaxis@poczta.fm">emaxis@poczta.fm</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Adres</div>
+            <div class="contact-value">
+              Krzyżowice 12<br />
+              49-332 Olszanka
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Media społecznościowe</div>
+            <div class="contact-socials">
+              <a class="contact-social-pill" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a class="contact-social-pill" href="https://www.tiktok.com/@ema.serwis" target="_blank" rel="noopener noreferrer">TikTok @ema.serwis</a>
+            </div>
+          </div>
+
+          <div class="contact-map">
+            <div style="font-weight:500;">Jak do nas trafić?</div>
+            <div>Krzyżowice, gmina Olszanka – najlepiej zadzwonić przed przyjazdem
+              i umówić dokładną godzinę.</div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="alert('To przykładowy formularz. Skonfiguruj obsługę po stronie serwera lub użyj usługi typu formspree.'); return false;">
+          <div class="contact-label">Formularz kontaktowy</div>
+          <div>
+            <label for="name">Imię i nazwisko</label>
+            <input id="name" type="text" name="name" placeholder="Jak się nazywasz?" required />
+          </div>
+          <div>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" placeholder="Twój adres e-mail" required />
+          </div>
+          <div>
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" rows="4" placeholder="Opisz pokrótce, czego potrzebujesz (materiał, ilość, termin)..."
+              required></textarea>
+          </div>
+          <small>
+            Ten formularz jest przykładowy – aby faktycznie wysyłał wiadomości,
+            trzeba dodać obsługę po stronie serwera lub skorzystać z zewnętrznej usługi.
+          </small>
+          <button type="submit">
+            Wyślij wiadomość
+            <span>➜</span>
+          </button>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer>
-    © 2025 Laser Art. Elektro Serwis
+    <div class="footer-inner">
+      <div>© 2025 Laser Art. Elektro Serwis</div>
+      <div>Krzyżowice 12, 49-332 Olszanka</div>
+    </div>
   </footer>
+</div>
 </body>
 </html>
