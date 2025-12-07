@@ -1,58 +1,332 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<title>Laser Art. Elektro Serwis – Grawer • Cięcie • Reklama • Serwis</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  :root {
-    --bg:#f5f7fb; --text:#1f2933; --muted:#6b7280;
-    --primary:#0050c9; --primary-soft:#e0edff;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-       background:var(--bg);color:var(--text);line-height:1.5;}
+  <meta charset="UTF-8" />
+  <title>Laser Art. Elektro Serwis – Grawer • Cięcie • Druk 3D • Serwis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg:#f5f7fb;
+      --text:#1f2933;
+      --muted:#6b7280;
+      --primary:#0050c9;
+      --primary-soft:#e0edff;
+    }
 
-  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.9);
-         backdrop-filter:blur(12px);border-bottom:1px solid #d0d7e1;}
-  .nav{max-width:1100px;margin:auto;padding:10px 16px;display:flex;
-       justify-content:space-between;align-items:center;}
-  .nav-title{font-weight:900;font-size:18px;letter-spacing:.06em;text-transform:uppercase;}
-  .nav-links a{margin-left:14px;font-size:14px;font-weight:600;padding:4px 8px;border-radius:20px;}
-  .nav-links a:hover{background:var(--primary-soft);color:var(--primary);}
+    *{box-sizing:border-box;margin:0;padding:0;}
 
-  .section{max-width:1100px;margin:auto;padding:32px 16px;}
-  .section-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);}
-  .section-title{font-size:26px;font-weight:800;margin:4px 0 10px;}
-  .section-text{color:var(--muted);margin-bottom:20px;font-size:15px;}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
 
-  /* HERO */
-  .hero-grid{display:grid;gap:24px;}
-  @media(min-width:768px){.hero-grid{grid-template-columns:1.2fr 1fr;}}
-  .hero-title{font-size:32px;font-weight:900;margin-bottom:12px;}
-  .hero-title span{color:var(--primary);}
-  .hero-text{color:var(--muted);margin-bottom:12px;font-size:15px;}
-  .hero-list li{color:var(--muted);font-size:14px;margin-bottom:4px;}
+    a{color:inherit;text-decoration:none;}
 
-  /* LASER */
-  .laser-demo{background:#020617;height:38px;border-radius:40px;display:flex;
-              gap:10px;padding:6px;margin-top:16px;box-shadow:0 10px 25px rgba(15,23,42,.35);}
-  .laser-head{width:25px;height:25px;border-radius:7px;background:linear-gradient(135deg,#9ca3af,#f3f4f6);position:relative;}
-  .laser-head:after{content:"";position:absolute;right:-3px;top:50%;transform:translateY(-50%);
-                    width:4px;height:10px;border-radius:3px;background:#38bdf8;box-shadow:0 0 12px #38bdf8;}
-  .laser-beam{flex:1;border-radius:999px;background:linear-gradient(90deg,rgba(56,189,248,.1),
-              rgba(37,99,235,.9),rgba(56,189,248,.1));position:relative;overflow:hidden;}
-  .laser-beam:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#e0f2fe,transparent);
-                    animation:sweep 1.4s linear infinite;}
-  @keyframes sweep{from{transform:translateX(-100%);}to{transform:translateX(100%);}}
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,0.9);
+      border-bottom:1px solid #d0d7e1;
+      backdrop-filter:blur(10px);
+    }
 
-  /* USŁUGI */
-  .services-grid{display:grid;gap:16px;}
-  @media(min-width:768px){.services-grid{grid-template-columns:repeat(2,1fr);}}
-  .service-card{background:white;border-radius:14px;border:1px solid #d0d7e1;padding:14px;font-size:14px;}
-  .service-card h3{margin-bottom:4px;font-size:15px;}
-  .service-card p{color:var(--muted);}
-</style>
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .nav-title{
+      font-weight:900;
+      font-size:18px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .nav-links a{
+      margin-left:14px;
+      font-size:14px;
+      font-weight:600;
+      padding:4px 8px;
+      border-radius:20px;
+    }
+
+    .nav-links a:hover{
+      background:var(--primary-soft);
+      color:var(--primary);
+    }
+
+    .section{
+      max-width:1100px;
+      margin:auto;
+      padding:32px 16px;
+    }
+
+    .section-kicker{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    .section-title{
+      font-size:26px;
+      font-weight:800;
+      margin:4px 0 10px;
+    }
+
+    .section-text{
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:15px;
+      max-width:640px;
+    }
+
+    /* HERO */
+
+    .hero-grid{
+      display:grid;
+      gap:24px;
+    }
+
+    @media(min-width:768px){
+      .hero-grid{
+        grid-template-columns:1.2fr 1fr;
+      }
+    }
+
+    .hero-title{
+      font-size:32px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .hero-title span{
+      color:var(--primary);
+    }
+
+    .hero-text{
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .hero-list li{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    /* ANIMACJA LASERA */
+
+    .laser-demo{
+      background:#020617;
+      height:38px;
+      border-radius:40px;
+      display:flex;
+      gap:10px;
+      padding:6px;
+      margin-top:16px;
+      box-shadow:0 10px 25px rgba(15,23,42,.35);
+    }
+
+    .laser-head{
+      width:25px;
+      height:25px;
+      border-radius:7px;
+      background:linear-gradient(135deg,#9ca3af,#f3f4f6);
+      position:relative;
+    }
+
+    .laser-head:after{
+      content:"";
+      position:absolute;
+      right:-3px;
+      top:50%;
+      transform:translateY(-50%);
+      width:4px;
+      height:10px;
+      border-radius:3px;
+      background:#38bdf8;
+      box-shadow:0 0 12px #38bdf8;
+    }
+
+    .laser-beam{
+      flex:1;
+      border-radius:999px;
+      background:linear-gradient(90deg,rgba(56,189,248,.1),rgba(37,99,235,.9),rgba(56,189,248,.1));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .laser-beam:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,transparent,#e0f2fe,transparent);
+      animation:sweep 1.4s linear infinite;
+    }
+
+    @keyframes sweep{
+      from{transform:translateX(-100%);}
+      to{transform:translateX(100%);}
+    }
+
+    /* USŁUGI */
+
+    .services-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    @media(min-width:768px){
+      .services-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    .service-card{
+      background:white;
+      border-radius:14px;
+      border:1px solid #d0d7e1;
+      padding:14px;
+      font-size:14px;
+    }
+
+    .service-card h3{
+      font-size:15px;
+      margin-bottom:4px;
+    }
+
+    .service-card p{
+      color:var(--muted);
+    }
+
+    /* GALERIA */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+      gap:12px;
+    }
+
+    .gallery-item{
+      position:relative;
+      height:180px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#0f172a;
+      animation:fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(10px) scale(.95);}
+      to{opacity:1;transform:translateY(0) scale(1);}
+    }
+
+    .gallery-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .4s ease;
+    }
+
+    .gallery-item:hover .gallery-img{
+      transform:scale(1.08);
+    }
+
+    .gallery-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:flex-end;
+      background:linear-gradient(to top,rgba(0,0,0,0.85),transparent 55%);
+      padding:8px;
+      color:#fff;
+      font-size:12px;
+    }
+
+    .gallery-label{
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .gallery-tag{
+      font-size:11px;
+      opacity:.9;
+    }
+
+    /* KONTAKT */
+
+    .contact-wrap{
+      display:grid;
+      gap:20px;
+      max-width:650px;
+    }
+
+    @media(min-width:768px){
+      .contact-wrap{
+        grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      }
+    }
+
+    .card{
+      background:white;
+      border-radius:14px;
+      border:1px solid #d0d7e1;
+      padding:14px;
+      font-size:14px;
+    }
+
+    .card label{
+      display:block;
+      font-size:13px;
+      margin-top:8px;
+      margin-bottom:3px;
+    }
+
+    .card input,
+    .card textarea{
+      width:100%;
+      padding:7px 9px;
+      border-radius:8px;
+      border:1px solid #cbd5e1;
+      font-family:inherit;
+      font-size:14px;
+    }
+
+    .card button{
+      margin-top:12px;
+      padding:9px 14px;
+      border:none;
+      border-radius:10px;
+      background:var(--primary);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .card button:hover{
+      background:#003e9a;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px 10px 24px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid #d0d7e1;
+      margin-top:20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -68,17 +342,25 @@
   </div>
 </header>
 
+<!-- HERO -->
 <section class="section" id="start">
   <div class="section-kicker">Krzyżowice • Olszanka</div>
 
   <div class="hero-grid">
     <div>
-      <h1 class="hero-title">Znakowanie <span>laserem</span>, reklama i serwis elektronarzędzi.</h1>
-      <p class="hero-text">Grawerowanie, cięcie laserowe, tabliczki znamionowe, numeracja, dekoracje i prezenty.</p>
+      <h1 class="hero-title">
+        Znakowanie <span>laserem</span>, druk <span>3D</span>, reklama i serwis elektronarzędzi.
+      </h1>
+
+      <p class="hero-text">
+        Grawerowanie i cięcie laserowe, druk 3D na drukarce Bambu Lab, tabliczki i szyldy,
+        personalizowane prezenty oraz serwis elektronarzędzi.
+      </p>
+
       <ul class="hero-list">
         <li>• Grawer na drewnie, laminatach i metalach.</li>
-        <li>• Tabliczki znamionowe i szyldy.</li>
-        <li>• Prezenty i dekoracje.</li>
+        <li>• Druk 3D – elementy techniczne i dekoracje.</li>
+        <li>• Tabliczki znamionowe, numery domów, szyldy.</li>
         <li>• Serwis elektronarzędzi.</li>
       </ul>
 
@@ -88,159 +370,213 @@
       </div>
     </div>
 
-    <div class="hero-side" style="background:white;border-radius:14px;border:1px solid #d0d7e1;padding:14px;">
-      <h3>Laser Atomstack S20 Pro</h3>
-      <p>Wyraźny grawer i czyste cięcia.</p>
+    <div style="background:white;border-radius:14px;border:1px solid #d0d7e1;padding:14px;font-size:14px;">
+      <h3 style="margin-bottom:6px;">Laser + druk 3D</h3>
+      <p>
+        Łączymy obróbkę laserową z drukiem 3D,
+        dzięki czemu możemy przygotować zarówno płaskie tabliczki,
+        jak i elementy przestrzenne.
+      </p>
+      <p style="margin-top:6px;color:#6b7280;font-size:13px;">
+        Drukarka <strong>Bambu Lab</strong> – szybkie i precyzyjne wydruki.
+      </p>
     </div>
   </div>
 </section>
 
+<!-- USŁUGI -->
 <section class="section" id="uslugi">
   <div class="section-kicker">Usługi</div>
   <h2 class="section-title">Co oferujemy?</h2>
-  <p class="section-text">Realizujemy pojedyncze sztuki i małe serie.</p>
+  <p class="section-text">Realizujemy pojedyncze sztuki i małe serie – dla osób prywatnych i firm.</p>
 
   <div class="services-grid">
-    <div class="service-card"><h3>Grawer laserowy</h3><p>Tabliczki, zdjęcia, pamiątki.</p></div>
-    <div class="service-card"><h3>Cięcie laserem</h3><p>Sklejka, MDF, laminaty.</p></div>
-    <div class="service-card"><h3>Reklama</h3><p>Numery domów, szyldy, tabliczki.</p></div>
-    <div class="service-card"><h3>Serwis</h3><p>Elektronarzędzia i prace elektryczne.</p></div>
+
+    <!-- Druk 3D -->
+    <div class="service-card">
+      <h3>Druk 3D – Bambu Lab</h3>
+      <p>
+        Wydruki 3D wykonywane na drukarce <strong>Bambu Lab</strong> – wysoka jakość,
+        dobra dokładność wymiarowa i estetyczne powierzchnie.
+      </p>
+      <p style="color:#6b7280;font-size:13px;margin-top:6px;">
+        PLA • PETG • prototypy • elementy techniczne • drobne dekoracje
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>Grawer laserowy</h3>
+      <p>Zdjęcia, tabliczki, napisy, logo – na sklejce, MDF, laminatach i innych materiałach.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Cięcie laserem</h3>
+      <p>Wycinanie kształtów w sklejce, MDF i podobnych materiałach według projektu.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Reklama i oznakowanie</h3>
+      <p>Numery domów, szyldy, tabliczki informacyjne, oznaczenia maszyn.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Serwis elektronarzędzi</h3>
+      <p>Podstawowy serwis i drobne naprawy elektronarzędzi.</p>
+    </div>
+
   </div>
 </section>
-<style>
-  /* GALERIA */
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-    gap:12px;
-  }
-  .gallery-item{
-    position:relative;
-    height:180px;
-    border-radius:14px;
-    overflow:hidden;
-    background:#0f172a;
-    animation:fadeUp .6s ease both;
-  }
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(10px) scale(.95);}
-    to{opacity:1;transform:translateY(0) scale(1);}
-  }
-  .gallery-img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .4s ease;
-  }
-  .gallery-item:hover .gallery-img{transform:scale(1.08);}
-  .gallery-overlay{
-    position:absolute;inset:0;
-    display:flex;align-items:flex-end;
-    background:linear-gradient(to top,rgba(0,0,0,0.85),transparent 55%);
-    padding:8px;color:#fff;font-size:12px;
-  }
-  .gallery-label{font-weight:700;font-size:13px;}
-  .gallery-tag{font-size:11px;opacity:.9;}
-</style>
 
+<!-- REALIZACJE – GALERIA ANIMOWANA -->
 <section class="section" id="realizacje">
   <div class="section-kicker">Realizacje</div>
   <h2 class="section-title">Galeria prac</h2>
-  <p class="section-text">Animowana galeria – podpisy zgodne z nazwami Twoich plików.</p>
+  <p class="section-text">
+    Animowana galeria – zdjęcia wjeżdżają przy ładowaniu strony, a przy najechaniu lekko się powiększają.
+    Podpisy odpowiadają dokładnym nazwom plików.
+  </p>
 
   <div class="gallery">
 
-    <!-- 1 -->
     <div class="gallery-item">
-      <img class="gallery-img" src="dzien-nauczyciela.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela.jpg" alt="dzien-nauczyciela" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">dzien-nauczyciela</div>
-        <div class="gallery-tag">dzien-nauczyciela.jpg</div></div>
+        <div>
+          <div class="gallery-label">dzien-nauczyciela</div>
+          <div class="gallery-tag">dzien-nauczyciela.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="dzien-nauczyciela1.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela1.jpg" alt="dzien-nauczyciela1" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">dzien-nauczyciela1</div>
-        <div class="gallery-tag">dzien-nauczyciela1.jpg</div></div>
+        <div>
+          <div class="gallery-label">dzien-nauczyciela1</div>
+          <div class="gallery-tag">dzien-nauczyciela1.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="dzien-nauczyciela2.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela2.jpg" alt="dzien-nauczyciela2" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">dzien-nauczyciela2</div>
-        <div class="gallery-tag">dzien-nauczyciela2.jpg</div></div>
+        <div>
+          <div class="gallery-label">dzien-nauczyciela2</div>
+          <div class="gallery-tag">dzien-nauczyciela2.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="dzien-nauczyciela3.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela3.jpg" alt="dzien-nauczyciela3" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">dzien-nauczyciela3</div>
-        <div class="gallery-tag">dzien-nauczyciela3.jpg</div></div>
+        <div>
+          <div class="gallery-label">dzien-nauczyciela3</div>
+          <div class="gallery-tag">dzien-nauczyciela3.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="grawer.jpg" />
+      <img class="gallery-img" src="grawer.jpg" alt="grawer" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">grawer</div>
-        <div class="gallery-tag">grawer.jpg</div></div>
+        <div>
+          <div class="gallery-label">grawer</div>
+          <div class="gallery-tag">grawer.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="Grawer-na-metalu.jpg" />
+      <img class="gallery-img" src="Grawer-na-metalu.jpg" alt="Grawer-na-metalu" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">Grawer-na-metalu</div>
-        <div class="gallery-tag">Grawer-na-metalu.jpg</div></div>
+        <div>
+          <div class="gallery-label">Grawer-na-metalu</div>
+          <div class="gallery-tag">Grawer-na-metalu.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="35lat.jpg" />
+      <img class="gallery-img" src="35lat.jpg" alt="35lat" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">35lat</div>
-        <div class="gallery-tag">35lat.jpg</div></div>
+        <div>
+          <div class="gallery-label">35lat</div>
+          <div class="gallery-tag">35lat.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="lampion.jpg" />
+      <img class="gallery-img" src="lampion.jpg" alt="lampion" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">lampion</div>
-        <div class="gallery-tag">lampion.jpg</div></div>
+        <div>
+          <div class="gallery-label">lampion</div>
+          <div class="gallery-tag">lampion.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="topper.jpg" />
+      <img class="gallery-img" src="topper.jpg" alt="topper" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">topper</div>
-        <div class="gallery-tag">topper.jpg</div></div>
+        <div>
+          <div class="gallery-label">topper</div>
+          <div class="gallery-tag">topper.jpg</div>
+        </div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="skarbonka.jpg" />
+      <img class="gallery-img" src="skarbonka.jpg" alt="skarbonka" />
       <div class="gallery-overlay">
-        <div><div class="gallery-label">skarbonka</div>
-        <div class="gallery-tag">skarbonka.jpg</div></div>
+        <div>
+          <div class="gallery-label">skarbonka</div>
+          <div class="gallery-tag">skarbonka.jpg</div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- KONTAKT Z FORMULARZEM -->
 <section class="section" id="kontakt">
   <div class="section-kicker">Kontakt</div>
-  <h2 class="section-title">Skontaktuj się</h2>
-  <p class="section-text">Telefon i e-mail do szybkiego kontaktu.</p>
+  <h2 class="section-title">Formularz kontaktowy</h2>
+  <p class="section-text">
+    Możesz zadzwonić lub wysłać wiadomość wraz z projektem – odpowiemy z wyceną i możliwym terminem realizacji.
+  </p>
 
-  <div class="contact-card" style="background:white;border-radius:16px;
-       border:1px solid #d0d7e1;padding:14px;font-size:14px;">
-    <p><strong>Telefon:</strong> 883 699 111</p>
-    <p><strong>E-mail:</strong> emaxis@poczta.fm</p>
-    <p><strong>Adres:</strong> Krzyżowice 12, 49-332 Olszanka</p>
+  <div class="contact-wrap">
+
+    <!-- Formularz -->
+    <form class="card"
+          onsubmit="alert('To przykładowy formularz – żeby wysyłał wiadomości, trzeba podpiąć go pod serwer lub usługę typu Formspree.');return false;">
+      <label>Imię i nazwisko</label>
+      <input type="text" required />
+
+      <label>E-mail</label>
+      <input type="email" required />
+
+      <label>Wiadomość</label>
+      <textarea rows="4" required></textarea>
+
+      <button type="submit">Wyślij formularz</button>
+    </form>
+
+    <!-- Dane kontaktowe -->
+    <div class="card">
+      <p><strong>Telefon:</strong> 883 699 111</p>
+      <p><strong>E-mail:</strong> emaxis@poczta.fm</p>
+      <p><strong>Adres:</strong> Krzyżowice 12, 49-332 Olszanka</p>
+      <p style="margin-top:8px;color:#6b7280;font-size:13px;">
+        Pliki do grawerowania i druku 3D (np. JPG, PNG, PDF, STL) możesz wysłać na e-mail,
+        dopisując informacje o materiale i przybliżonym rozmiarze.
+      </p>
+    </div>
+
   </div>
 </section>
 
