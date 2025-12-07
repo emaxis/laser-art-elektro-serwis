@@ -1,171 +1,89 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8" />
-<title>Laser Art. Elektro Serwis – Grawer • Cięcie • Reklama • Serwis</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  body { margin: 0; font-family: Arial, sans-serif; background:#f5f7fb; color:#1f2933; }
-  header { position: sticky; top:0; background:rgba(255,255,255,0.9); backdrop-filter:blur(10px); padding:10px 0;
-    border-bottom:1px solid #d0d7e1; }
-  nav { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 15px; }
-  nav a { margin-left:15px; text-decoration:none; color:#1f2933; font-weight:600; }
-  nav a:hover { color:#0050c9; }
-  .section { max-width:1100px; margin:auto; padding:40px 15px; }
-  .section-title { font-size:26px; font-weight:800; margin:5px 0 10px; }
-  .section-text { color:#6b7280; margin-bottom:20px; }
-
-  /* GALERIA */
-  .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:15px; }
-  .gallery-item { position:relative; overflow:hidden; border-radius:14px; background:#0f172a; height:260px; }
-  .gallery-item img { width:100%; height:100%; object-fit:cover; }
-  .gallery-overlay {
-      position:absolute; bottom:0; left:0; right:0;
-      padding:10px; color:white;
-      background:linear-gradient(to top,rgba(0,0,0,0.75),transparent);
-      font-size:14px;
-  }
-  .gallery-label { font-weight:700; }
-  .gallery-tag { font-size:12px; opacity:0.85; }
-
-  /* LASER ANIMACJA */
-  .laser-demo { background:#020617; height:38px; border-radius:40px; display:flex; gap:10px; padding:6px; margin-top:15px; }
-  .laser-head { width:25px; height:25px; border-radius:6px; background:linear-gradient(135deg,#aaa,#eee); position:relative; }
-  .laser-head:after {
-      content:""; position:absolute; right:-3px; top:50%; transform:translateY(-50%);
-      width:4px; height:10px; border-radius:3px; background:#38bdf8; box-shadow:0 0 10px #38bdf8;
-  }
-  .laser-beam { flex:1; background:linear-gradient(90deg,rgba(56,189,248,0.1),rgba(37,99,235,0.9),rgba(56,189,248,0.1));
-      border-radius:5px; position:relative; overflow:hidden; }
-  .laser-beam:after {
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(90deg,transparent,#e0f2fe,transparent);
-      animation:sweep 1.4s linear infinite;
-  }
-  @keyframes sweep { from{transform:translateX(-100%);} to{transform:translateX(100%);} }
-
-  footer { text-align:center; padding:20px; font-size:14px; color:#6b7280; border-top:1px solid #d0d7e1; }
-</style>
-</head>
-
-<body>
-
-<header>
-  <nav>
-    <div style="font-weight:900; font-size:18px;">Laser Art. Elektro Serwis</div>
-    <div>
-      <a href="#uslugi">Usługi</a>
-      <a href="#realizacje">Realizacje</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="section">
-  <h1 style="font-size:32px; font-weight:900; margin-bottom:15px;">
-    Znakowanie <span style="color:#0050c9;">laserem</span>, reklama i serwis elektronarzędzi
-  </h1>
-
-  <p class="section-text">
-    Precyzyjne grawerowanie, cięcie laserem, tabliczki i szyldy reklamowe oraz serwis elektronarzędzi.
-  </p>
-
-  <div class="laser-demo">
-    <div class="laser-head"></div>
-    <div class="laser-beam"></div>
-  </div>
-</section>
-
-<!-- USŁUGI -->
-<section class="section" id="uslugi">
-  <div class="section-title">Usługi</div>
-  <div class="section-text">Grawerowanie, cięcie, projekty reklamowe, serwis elektronarzędzi i prace elektryczne.</div>
-</section>
-
-<!-- REALIZACJE -->
 <section class="section" id="realizacje">
-  <div class="section-title">Wybrane realizacje</div>
-  <div class="section-text">Przykłady Twoich prac – wszystkie zdjęcia wczytują się poprawnie.</div>
+  <div class="section-kicker">Realizacje</div>
+  <h2 class="section-title">Galeria prac</h2>
+  <p class="section-text">Podpisy odpowiadają dokładnym nazwom plików.</p>
 
   <div class="gallery">
 
     <div class="gallery-item">
-      <img src="dzien-nauczyciela1.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Ramka Dzień Nauczyciela</div>
-        <div class="gallery-tag">Ażurowa personalizowana ramka</div>
+        <div class="gallery-label">dzien-nauczyciela</div>
+        <div class="gallery-tag">dzien-nauczyciela.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="dzien-nauczyciela2.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela1.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Pudełko prezentowe</div>
-        <div class="gallery-tag">Dekoracyjne pudełko z ażurową pokrywą</div>
+        <div class="gallery-label">dzien-nauczyciela1</div>
+        <div class="gallery-tag">dzien-nauczyciela1.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="dzien-nauczyciela3.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela2.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Upominki 5B</div>
-        <div class="gallery-tag">Serduszka i pióra z numerem klasy</div>
+        <div class="gallery-label">dzien-nauczyciela2</div>
+        <div class="gallery-tag">dzien-nauczyciela2.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="grawer.jpg" />
+      <img class="gallery-img" src="dzien-nauczyciela3.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Grawer zdjęcia</div>
-        <div class="gallery-tag">Stara pocztówka na MDF</div>
+        <div class="gallery-label">dzien-nauczyciela3</div>
+        <div class="gallery-tag">dzien-nauczyciela3.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="35lat.jpg" />
+      <img class="gallery-img" src="grawer.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Dekor 35 lat</div>
-        <div class="gallery-tag">Stojący dekor na jubileusz</div>
+        <div class="gallery-label">grawer</div>
+        <div class="gallery-tag">grawer.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="topper.jpg" />
+      <img class="gallery-img" src="Grawer-na-metalu.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Topper</div>
-        <div class="gallery-tag">Najlepszy Nauczyciel</div>
+        <div class="gallery-label">Grawer-na-metalu</div>
+        <div class="gallery-tag">Grawer-na-metalu.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="lampion.jpg" />
+      <img class="gallery-img" src="35lat.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Lampion</div>
-        <div class="gallery-tag">Ażurowy lampion z MDF</div>
+        <div class="gallery-label">35lat</div>
+        <div class="gallery-tag">35lat.jpg</div>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="skarbonka.jpg" />
+      <img class="gallery-img" src="lampion.jpg" />
       <div class="gallery-overlay">
-        <div class="gallery-label">Skarbonka</div>
-        <div class="gallery-tag">Plansza z kwotami do odhaczania</div>
+        <div class="gallery-label">lampion</div>
+        <div class="gallery-tag">lampion.jpg</div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img class="gallery-img" src="topper.jpg" />
+      <div class="gallery-overlay">
+        <div class="gallery-label">topper</div>
+        <div class="gallery-tag">topper.jpg</div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img class="gallery-img" src="skarbonka.jpg" />
+      <div class="gallery-overlay">
+        <div class="gallery-label">skarbonka</div>
+        <div class="gallery-tag">skarbonka.jpg</div>
       </div>
     </div>
 
   </div>
 </section>
-
-<!-- KONTAKT -->
-<section class="section" id="kontakt">
-  <div class="section-title">Kontakt</div>
-  <p class="section-text">Telefon: <strong>883 699 111</strong><br>E-mail: <strong>emaxis@poczta.fm</strong><br>Krzyżowice 12, 49-332 Olszanka</p>
-</section>
-
-<footer>
-  © 2025 Laser Art. Elektro Serwis
-</footer>
-
-</body>
-</html>
