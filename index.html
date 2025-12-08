@@ -47,7 +47,7 @@
       gap:16px;
     }
 
-    /* Logo w stylu jak na zdjęciu */
+    /* Logo w stylu jak na obrazku */
     .logo-font{
       font-family:'Great Vibes',cursive;
       font-size:32px;
@@ -66,7 +66,7 @@
       margin-left:14px;
       font-size:14px;
       font-weight:600;
-      padding:4px 8px;
+      padding:4px 10px;
       border-radius:20px;
     }
 
@@ -335,6 +335,73 @@
       border-top:1px solid #d0d7e1;
       margin-top:20px;
     }
+
+    /* 🔹 DOSTOSOWANIE POD TELEFON (max ~640px) */
+    @media(max-width:640px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+      }
+
+      .logo-font{
+        font-size:26px;
+        white-space:normal; /* pozwól się zawijać w 2 linijki */
+      }
+
+      .nav-links{
+        margin-left:0;
+        flex-wrap:wrap;
+        gap:6px;
+      }
+
+      .nav-links a{
+        margin-left:0;
+        background:white;
+        border:1px solid #d0d7e1;
+      }
+
+      .section{
+        padding:20px 12px;
+      }
+
+      .hero-title{
+        font-size:24px;
+      }
+
+      .hero-text{
+        font-size:14px;
+      }
+
+      .hero-list li{
+        font-size:13px;
+      }
+
+      .services-grid{
+        grid-template-columns:1fr; /* jedna kolumna usług */
+      }
+
+      .gallery{
+        grid-template-columns:repeat(2,1fr); /* 2 kafelki w rzędzie */
+        gap:8px;
+      }
+
+      .gallery-item{
+        height:150px;
+      }
+
+      .section-title{
+        font-size:22px;
+      }
+
+      .section-kicker{
+        font-size:10px;
+      }
+
+      .contact-wrap{
+        grid-template-columns:1fr; /* formularz nad danymi */
+      }
+    }
   </style>
 </head>
 
@@ -477,11 +544,11 @@
     </div>
 
     <div class="gallery-item">
-      <img class="gallery-img" src="dzien-nauczyciela3.jpg" alt="dzien-nauczyciela3" />
+      <img class="gallery-img" src="dzien-nauczyciela3.JPG" alt="dzien-nauczyciela3" />
       <div class="gallery-overlay">
         <div>
           <div class="gallery-label">dzien-nauczyciela3</div>
-          <div class="gallery-tag">dzien-nauczyciela3.jpg</div>
+          <div class="gallery-tag">dzien-nauczyciela3.JPG</div>
         </div>
       </div>
     </div>
